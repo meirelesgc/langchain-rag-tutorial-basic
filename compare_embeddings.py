@@ -4,25 +4,29 @@ from dotenv import load_dotenv
 import openai
 import os
 
-# Load environment variables. Assumes that project contains .env file with API keys
+# Carrega as variáveis de ambiente. Assume que o projeto contém um arquivo .env com as chaves da API.
 load_dotenv()
-#---- Set OpenAI API key 
-# Change environment variable name from "OPENAI_API_KEY" to the name given in 
-# your .env file.
-openai.api_key = os.environ['OPENAI_API_KEY']
+# ---- Define a chave da API da OpenAI
+# Altere o nome da variável de ambiente de "OPENAI_API_KEY" para o nome especificado no
+# seu arquivo .env.
+openai.api_key = os.environ["OPENAI_API_KEY"]
+
 
 def main():
-    # Get embedding for a word.
-    embedding_function = OpenAIEmbeddings()
-    vector = embedding_function.embed_query("apple")
-    print(f"Vector for 'apple': {vector}")
-    print(f"Vector length: {len(vector)}")
+    first_sentence = input("Primeira palavra: ")
+    second_sentence = input("Primeira palavra: ")
 
-    # Compare vector of two words
+    # Obtém o embedding de uma palavra.
+    embedding_function = OpenAIEmbeddings()
+    vector = embedding_function.embed_query(first_sentence)
+    # print(f"Vetor para 'apple': {vector}")
+    print(f"Tamanho do vetor: {len(vector)}")
+
+    # Compara os vetores de duas palavras.
     evaluator = load_evaluator("pairwise_embedding_distance")
-    words = ("apple", "iphone")
+    words = (first_sentence, second_sentence)
     x = evaluator.evaluate_string_pairs(prediction=words[0], prediction_b=words[1])
-    print(f"Comparing ({words[0]}, {words[1]}): {x}")
+    print(f"Comparando ({words[0]}, {words[1]}): {x}")
 
 
 if __name__ == "__main__":

@@ -1,47 +1,46 @@
-# Langchain RAG Tutorial
+# Tutorial Langchain RAG
 
-## Install dependencies
+## Instale as dependências
 
-1. Do the following before installing the dependencies found in `requirements.txt` file because of current challenges installing `onnxruntime` through `pip install onnxruntime`. 
+1. Realize os seguintes passos antes de instalar as dependências listadas no arquivo `requirements.txt`, devido aos desafios atuais para instalar o `onnxruntime` via `pip install onnxruntime`.
 
-    - For MacOS users, a workaround is to first install `onnxruntime` dependency for `chromadb` using:
+    - Para usuários de **MacOS**, uma solução alternativa é instalar primeiro a dependência `onnxruntime` necessária para o `chromadb` utilizando:
 
     ```python
-     conda install onnxruntime -c conda-forge
+    conda install onnxruntime -c conda-forge
     ```
-    See this [thread](https://github.com/microsoft/onnxruntime/issues/11037) for additonal help if needed. 
+    Consulte este [tópico](https://github.com/microsoft/onnxruntime/issues/11037) para obter ajuda adicional, se necessário.
 
-     - For Windows users, follow the guide [here](https://github.com/bycloudai/InstallVSBuildToolsWindows?tab=readme-ov-file) to install the Microsoft C++ Build Tools. Be sure to follow through to the last step to set the enviroment variable path.
+    - Para usuários de **Windows**, siga o guia [aqui](https://github.com/bycloudai/InstallVSBuildToolsWindows?tab=readme-ov-file) para instalar o Microsoft C++ Build Tools. Certifique-se de concluir todas as etapas, incluindo a configuração da variável de ambiente no caminho.
 
-
-2. Now run this command to install dependenies in the `requirements.txt` file. 
+2. Execute este comando para instalar as dependências do arquivo `requirements.txt`:
 
 ```python
 pip install -r requirements.txt
 ```
 
-3. Install markdown depenendies with: 
+3. Instale as dependências para markdown com:
 
 ```python
 pip install "unstructured[md]"
 ```
 
-## Create database
+## Crie o banco de dados
 
-Create the Chroma DB.
+Crie o banco de dados Chroma DB:
 
 ```python
 python create_database.py
 ```
 
-## Query the database
+## Consulte o banco de dados
 
-Query the Chroma DB.
+Realize consultas no Chroma DB:
 
 ```python
-python query_data.py "How does Alice meet the Mad Hatter?"
+python query_data.py "Como Alice conhece o Chapeleiro Maluco?"
 ```
 
-> You'll also need to set up an OpenAI account (and set the OpenAI key in your environment variable) for this to work.
+> Você também precisará criar uma conta na OpenAI (e configurar a chave da OpenAI na variável de ambiente) para que isso funcione.
 
-Here is a step-by-step tutorial video: [RAG+Langchain Python Project: Easy AI/Chat For Your Docs](https://www.youtube.com/watch?v=tcqEUSNCn8I&ab_channel=pixegami).
+Aqui está um tutorial em vídeo, passo a passo: [RAG+Langchain Python Project: Easy AI/Chat For Your Docs](https://www.youtube.com/watch?v=tcqEUSNCn8I&ab_channel=pixegami).
